@@ -14,9 +14,7 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'homepage']);
 
 
 Route::middleware('auth')->group(function () {
@@ -29,4 +27,4 @@ require __DIR__ . '/auth.php';
 
 
 Route::get('/home', [HomeController::class, 'index'])->middleware('auth')->name('home');
-Route::get('/post', [HomeController::class, 'post'])->middleware(['auth' ,'admin']);
+Route::get('/post', [HomeController::class, 'post'])->middleware(['auth', 'admin']);
