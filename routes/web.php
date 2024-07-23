@@ -19,5 +19,9 @@ require __DIR__ . '/auth.php';
 Route::get('/home', [HomeController::class, 'index'])->middleware('auth')->name('home');
 Route::get('/post', [HomeController::class, 'post'])->middleware(['auth', 'admin']);
 
+//Add post page
 Route::get('/post_page', [AdminController::class, 'post_page']);
-Route::post('add_post', [AdminController::class, 'add_post'])->name('add_post');
+Route::post('/add_post', [AdminController::class, 'add_post'])->name('add_post');
+
+//Show post page
+Route::get('/show_post', [AdminController::class, 'show_post']);

@@ -12,11 +12,13 @@ class AdminController extends Controller
     {
         return view('admin.post_page');
     }
+
+
     public function add_post(Request $request)
     {
-        $user=Auth()->user();
+        $user = Auth()->user();
         $userid = $user->id;
-        $name = $user ->name;
+        $name = $user->name;
         $usertype = $user->usertype;
 
         $post = new Post;
@@ -25,7 +27,7 @@ class AdminController extends Controller
         $post->post_status = 'active';
         $post->name = $name;
         $post->user_id = $userid;
-        $post->usertype= $usertype;
+        $post->usertype = $usertype;
 
         $image = $request->image;
         if ($image) {
@@ -37,4 +39,12 @@ class AdminController extends Controller
         $post->save();
         return redirect()->back()->with('message', 'Post added succesfully');
     }
+
+
+    public function show_post(){
+
+        $post= Post::all();
+        return view('admin.show_post', compact('post'));
+    }
+
 }
