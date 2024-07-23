@@ -9,6 +9,7 @@
             color: white;
             padding: 30px;
             text-align: center;
+            margin: 50px;
         }
 
         .table-deg {
@@ -25,7 +26,8 @@
 
         .img-deg {
             height: 100px;
-            margin-bottom: 50px;
+            margin: 80px;
+
         }
     </style>
     @include('admin.css')

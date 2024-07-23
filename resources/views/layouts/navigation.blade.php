@@ -3,7 +3,6 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="">
             <div class="flex">
-          
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
@@ -21,8 +20,8 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        <x-dropdown-link :href="route('profile.edit')">
-                            <span style="color:black!important;">{{ __('Profile') }}</span>
+                        <x-dropdown-link :href="route('profile.edit')" class="dropdown-link">
+                            <span>{{ __('Profile') }}</span>
                         </x-dropdown-link>
 
                         <!-- Authentication -->
@@ -31,8 +30,8 @@
 
                             <x-dropdown-link :href="route('logout')"
                                     onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                              <span style="color:black!important;">{{ __('Log Out') }}</span>
+                                                this.closest('form').submit();" class="dropdown-link">
+                                <span>{{ __('Log Out') }}</span>
                             </x-dropdown-link>
                         </form>
                     </x-slot>
@@ -54,7 +53,7 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('home')" :active="request()->routeIs('home')">
+            <x-responsive-nav-link :href="route('home')" :active="request()->routeIs('home')" class="dropdown-link">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
         </div>
@@ -67,8 +66,8 @@
             </div>
 
             <div class="mt-3 space-y-1">
-                <x-responsive-nav-link :href="route('profile.edit')">
-                    <span style="color:black!important;">{{ __('Profile') }}</span>
+                <x-responsive-nav-link :href="route('profile.edit')" class="dropdown-link">
+                    <span>{{ __('Profile') }}</span>
                 </x-responsive-nav-link>
 
                 <!-- Authentication -->
@@ -77,11 +76,29 @@
 
                     <x-responsive-nav-link :href="route('logout')"
                             onclick="event.preventDefault();
-                                        this.closest('form').submit();">
-                        <span style="color:black!important;">{{ __('Log Out') }}</span>
+                                        this.closest('form').submit();" class="dropdown-link">
+                        <span>{{ __('Log Out') }}</span>
                     </x-responsive-nav-link>
                 </form>
             </div>
         </div>
     </div>
 </nav>
+
+<style>
+    .dropdown-link {
+        background-color: white;
+        color: black;
+        font-size: 16px; /* Yazı boyutunu artır */
+        font-weight: 600; /* Yazı kalınlığını artır */
+        padding: 10px 15px; /* Daha geniş bir padding */
+    }
+
+    .dropdown-link:hover span {
+        color: red;
+    }
+
+    .dropdown-link:hover {
+        background-color: white; /* Arka plan rengini beyazda tut */
+    }
+</style>
