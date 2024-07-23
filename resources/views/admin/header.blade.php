@@ -30,27 +30,27 @@
                             class="badge dashbg-1">5</span></a>
                     <div aria-labelledby="navbarDropdownMenuLink1" class="dropdown-menu messages"><a href="#"
                             class="dropdown-item message d-flex align-items-center">
-                            <div class="profile"><img src="img/avatar-3.jpg" alt="..." class="img-fluid">
+                            <div class="profile"><img src="Admincss/img/avatar-3.jpg" alt="..." class="img-fluid">
                                 <div class="status online"></div>
                             </div>
                             <div class="content"> <strong class="d-block">Nadia Halsey</strong><span
                                     class="d-block">lorem ipsum dolor sit amit</span><small
                                     class="date d-block">9:30am</small></div>
                         </a><a href="#" class="dropdown-item message d-flex align-items-center">
-                            <div class="profile"><img src="img/avatar-2.jpg" alt="..." class="img-fluid">
+                            <div class="profile"><img src="Admincss/img/avatar-2.jpg" alt="..." class="img-fluid">
                                 <div class="status away"></div>
                             </div>
                             <div class="content"> <strong class="d-block">Peter Ramsy</strong><span
                                     class="d-block">lorem ipsum dolor sit amit</span><small
                                     class="date d-block">7:40am</small></div>
                         </a><a href="#" class="dropdown-item message d-flex align-items-center">
-                            <div class="profile"><img src="img/avatar-1.jpg" alt="..." class="img-fluid">
+                            <div class="profile"><img src="Admincss/img/avatar-1.jpg" alt="..." class="img-fluid">
                                 <div class="status busy"></div>
                             </div>
                             <div class="content"> <strong class="d-block">Sam Kaheil</strong><span class="d-block">lorem
                                     ipsum dolor sit amit</span><small class="date d-block">6:55am</small></div>
                         </a><a href="#" class="dropdown-item message d-flex align-items-center">
-                            <div class="profile"><img src="img/avatar-5.jpg" alt="..." class="img-fluid">
+                            <div class="profile"><img src="Admincss/img/avatar-5.jpg" alt="..." class="img-fluid">
                                 <div class="status offline"></div>
                             </div>
                             <div class="content"> <strong class="d-block">Sara Wood</strong><span class="d-block">lorem
@@ -175,16 +175,7 @@
                     </div>
                 </div>
                 <!-- Megamenu end     -->
-                <!-- Languages dropdown    -->
-                <div class="list-inline-item dropdown"><a id="languages" rel="nofollow" data-target="#" href="#"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                        class="nav-link language dropdown-toggle"><img src="img/flags/16/GB.png" alt="English"><span
-                            class="d-none d-sm-inline-block">English</span></a>
-                    <div aria-labelledby="languages" class="dropdown-menu"><a rel="nofollow" href="#"
-                            class="dropdown-item"> <img src="img/flags/16/DE.png" alt="English"
-                                class="mr-2"><span>German</span></a><a rel="nofollow" href="#" class="dropdown-item">
-                            <img src="img/flags/16/FR.png" alt="English" class="mr-2"><span>French </span></a></div>
-                </div>
+            
                 <!-- Log out               -->
                 <div class="list-inline-item logout">
                     <x-app-layout>
