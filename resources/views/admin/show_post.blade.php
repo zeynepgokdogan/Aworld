@@ -20,16 +20,23 @@
             width: 80%;
             text-align: center;
             margin-left: 100px;
+            border-collapse: separate; /* Boşluk için gerekli */
+            border-spacing: 0 10px; /* Satırlar arasındaki boşluğu ayarlayın */
         }
 
         .th-deg {
             background-color: skyblue;
             color: black;
+            padding: 10px 20px; /* Başlık hücrelerine padding */
+        }
+
+        .td-deg {
+            padding: 10px 20px; /* Veri hücrelerine padding */
         }
 
         .img-deg {
             height: 150px;
-            width: 100%;
+            width: 350px;
             padding: 20px;
         }
     </style>
@@ -52,23 +59,24 @@
             <h1 class="title-deg">All Post</h1>
             <table class="table-deg">
                 <tr class="th-deg">
-                    <th>Post Title</th>
-                    <th>Description</th>
-                    <th>Post By</th>
-                    <th>Post Status</th>
-                    <th>UserType</th>
-                    <th>Image</th>
-                    <th>Delete</th>
+                    <th class="th-deg">Post Title</th>
+                    <th class="th-deg">Description</th>
+                    <th class="th-deg">Post By</th>
+                    <th class="th-deg">Post Status</th>
+                    <th class="th-deg">User Type</th>
+                    <th class="th-deg">Image</th>
+                    <th class="th-deg">Delete</th>
                 </tr>
                 @foreach ($post as $post)
                 <tr>
-                    <td>{{ $post->title }}</td>
-                    <td>{{ $post->description }}</td>
-                    <td>{{ $post->name }}</td>
-                    <td>{{ $post->post_status }}</td>
-                    <td>{{ $post->usertype }}</td>
-                    <td><img class="img-deg" src="postimage/{{ $post->image }}" alt=""></td>
-                    <td><a href="{{ url('delete_post', $post->id) }}" class="btn btn-danger" onclick="confirmation(event)">Delete</a></td>
+                    <td class="td-deg">{{ $post->title }}</td>
+                    <td class="td-deg">{{ $post->description }}</td>
+                    <td class="td-deg">{{ $post->name }}</td>
+                    <td class="td-deg">{{ $post->post_status }}</td>
+                    <td class="td-deg">{{ $post->usertype }}</td>
+                    <td class="td-deg"><img class="img-deg" src="postimage/{{ $post->image }}" alt=""></td>
+                    <td class="td-deg"><a href="{{ url('delete_post', $post->id) }}" class="btn btn-danger"
+                            onclick="confirmation(event)">Delete</a></td>
                 </tr>
                 @endforeach
             </table>
