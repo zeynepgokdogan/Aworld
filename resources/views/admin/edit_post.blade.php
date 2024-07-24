@@ -4,10 +4,10 @@
 <head>
     <style>
         body {
-            background-color: #111; /* Dark background color */
-            color: white; /* Text color */
-            margin: 0; /* Remove default margin */
-            font-family: Arial, sans-serif; /* Font style */
+            background-color: #111;
+            color: white;
+            margin: 0;
+            font-family: Arial, sans-serif;
         }
 
         .post_title {
@@ -23,11 +23,13 @@
             padding: 20px;
             border: 2px solid #ccc;
             border-radius: 10px;
-            background-color: #333; /* Slightly darker background */
+            background-color: #333;
         }
 
         .div_center {
-            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             padding: 15px;
         }
 
@@ -36,7 +38,7 @@
             width: 200px;
             text-align: right;
             margin-right: 10px;
-            color: white; /* Label text color */
+            color: white;
         }
 
         input[type="text"],
@@ -46,31 +48,46 @@
             border-radius: 5px;
             border: 1px solid #ccc;
             width: 300px;
-            background-color: #666; /* Input field background color */
-            color: white; /* Input field text color */
+            background-color: #666;
+            color: white;
             margin-left: 10px;
         }
 
         textarea {
             height: 100px;
             resize: vertical;
-            background-color: #666 !important; /* Force background color */
-            color: white !important; /* Text color */
+            background-color: #666 !important;
+            color: white !important;
         }
 
         .btn {
             padding: 10px 20px;
             border: none;
             border-radius: 5px;
-            background-color: red;
+            background-color: blue;
+            text-align: center;
             color: white;
             cursor: pointer;
+            font-size: 16px;
+            display: block;
+            margin: 0 auto;
         }
 
         .btn:hover {
-            background-color: green;
+            background-color: #00bfff;
+        }
+
+        .image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image-container img {
+            margin-left: 10px;
         }
     </style>
+    <base href="/public">
     @include('admin.css')
 </head>
 
@@ -88,24 +105,28 @@
             </div>
             @endif
 
-            <h1 class="post_title">Add Post</h1>
+            <h1 class="post_title">Edit Post</h1>
             <div class="form-container">
-                <form action="{{ route('add_post') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('update_post',$post->id)}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="div_center">
                         <label>Post Title</label>
-                        <input type="text" name="title">
+                        <input type="text" name="title" value="{{$post->title}}">
                     </div>
                     <div class="div_center">
                         <label>Post Description</label>
-                        <textarea name="description"></textarea>
+                        <textarea name="description">{{$post->description}}</textarea>
+                    </div>
+                    <div class="div_center image-container">
+                        <label>Old Image</label>
+                        <img height="100px" width="150px" src="/postimage/{{$post->image}}" alt="">
                     </div>
                     <div class="div_center">
-                        <label>Add Image</label>
+                        <label>Update Old Image</label>
                         <input type="file" name="image">
                     </div>
                     <div class="div_center">
-                        <input type="submit" class="btn">
+                        <input type="submit" class="btn" value="Update">
                     </div>
                 </form>
             </div>

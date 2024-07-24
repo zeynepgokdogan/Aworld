@@ -2,9 +2,8 @@
 <html>
 
 <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
-        integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- SweetAlert2 CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
         .title-deg {
             font-size: 30px;
@@ -20,7 +19,7 @@
             width: 80%;
             text-align: center;
             margin-left: 100px;
-            border-collapse: separate; /* Boşluk için gerekli */
+            border-collapse: separate;
             border-spacing: 0 10px; /* Satırlar arasındaki boşluğu ayarlayın */
         }
 
@@ -66,6 +65,7 @@
                     <th class="th-deg">User Type</th>
                     <th class="th-deg">Image</th>
                     <th class="th-deg">Delete</th>
+                    <th class="th-deg">Edit</th>
                 </tr>
                 @foreach ($post as $post)
                 <tr>
@@ -74,9 +74,13 @@
                     <td class="td-deg">{{ $post->name }}</td>
                     <td class="td-deg">{{ $post->post_status }}</td>
                     <td class="td-deg">{{ $post->usertype }}</td>
-                    <td class="td-deg"><img class="img-deg" src="postimage/{{ $post->image }}" alt=""></td>
-                    <td class="td-deg"><a href="{{ url('delete_post', $post->id) }}" class="btn btn-danger"
-                            onclick="confirmation(event)">Delete</a></td>
+                    <td class="td-deg"><img class="img-deg" src="{{ asset('postimage/'.$post->image) }}" alt="Post Image"></td>
+                    <td class="td-deg">
+                        <a href="{{ url('delete_post', $post->id) }}" class="btn btn-danger" onclick="return confirmation(event)">Delete</a>
+                    </td>
+                    <td class="td-deg">
+                        <a href="{{ url('edit_post', $post->id) }}" class="btn btn-success">Edit</a>
+                    </td>
                 </tr>
                 @endforeach
             </table>
@@ -89,17 +93,20 @@
         function confirmation(ev) {
             ev.preventDefault();
             var urlToRedirect = ev.currentTarget.getAttribute('href');
-            swal({
+            Swal.fire({
                 title: "Are you sure to delete this post?",
                 text: "You won't be able to revert this delete",
                 icon: "warning",
-                buttons: ["Cancel", "Delete"],
-                dangerMode: true,
-            }).then((willDelete) => {
-                if (willDelete) {
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Delete'
+            }).then((result) => {
+                if (result.isConfirmed) {
                     window.location.href = urlToRedirect;
                 }
             });
+            return false; // Prevent the default anchor action
         }
     </script>
 </body>

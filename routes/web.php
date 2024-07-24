@@ -16,19 +16,23 @@ Route::middleware('auth')->group(function () {
 require __DIR__ . '/auth.php';
 
 
+//LOGIN PAGE
+Route::get('/', [LoginController::class, 'index'])->middleware('auth')->name('home');
 
-//Login Page
-Route::get('/', [LoginController::class, 'loginpage']);
-Route::get('/home', [LoginController::class, 'index'])->middleware('auth')->name('home');
 
+//ADMİN PAGE
+//home page
+Route::get('/homepage', [AdminController::class, 'homepage'])->name('homepage_a');
 
 //Add post page
 Route::get('/post_page', [AdminController::class, 'post_page']);
 Route::post('/add_post', [AdminController::class, 'add_post'])->name('add_post');
 
 //Show post page
-Route::get('/show_post', [AdminController::class, 'show_post']);
-
-//Delete post
+Route::get('/show_post', [AdminController::class, 'show_post'])->name('show_post');
 Route::get('/delete_post/{id}', [AdminController::class, 'delete_post']);
+Route::get('/edit_post/{id}', [AdminController::class, 'edit_post']);
+Route::post('/update_post/{id}', [AdminController::class, 'update_post'])->name('update_post');
 
+
+//USER PAGE
