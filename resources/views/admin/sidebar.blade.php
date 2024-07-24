@@ -1,7 +1,7 @@
 <nav id="sidebar">
   <!-- Sidebar Header-->
   <div class="sidebar-header d-flex align-items-center">
-    <div class="avatar"><img src="Admincss/img/profile.jpg" alt="..." class="img-fluid rounded-circle"></div>
+    <div class="avatar"><img src="Admincss/img/avatar-3.jpg" alt="..." class="img-fluid rounded-circle"></div>
     <div class="title">
       <h1 class="h5">{{$user = Auth()->user()->name}}</h1>
       <p>Web Designer</p>

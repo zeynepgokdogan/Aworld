@@ -8,14 +8,14 @@ use App\Models\User;
 
 
 
-class HomeController extends Controller
+class LoginController extends Controller
 {
     public function index()
     {
         if (Auth::id()) {
             $usertype = Auth()->user()->usertype;
             if ($usertype == 'user') {
-                return view('home.homepage');
+                return view('user.homepage');
             } else if ($usertype == 'admin') {
                 return view('admin.adminhome');
             } else {
@@ -24,13 +24,8 @@ class HomeController extends Controller
         }
     }
 
-    public function post()
+    public function loginpage()
     {
-        return view('post');
-    }
-
-    public function homepage()
-    {
-        return view('home.homepage');
+        return view('loginpage');
     }
 }
